@@ -1,0 +1,25 @@
+---
+const services = [
+  { title: "Professional websites", body: "Simple, modern sites that actually work on a phone. No hidden monthly fees — just a solid, professional home for your business." },
+  { title: "Email & domain setup", body: "Get a proper branded email address that looks the business. I'll handle the setup and make sure your invoices land in customer inboxes." },
+  { title: "Malware & virus removal", body: "If your laptop is crawling or showing weird pop-ups, I'll get it cleaned, secured and back up to speed. No data lost, no fuss." },
+  { title: "General tech support", body: "From printer tantrums to slow Wi-Fi, consider me your on-call IT department. If it's being difficult, I'll get it sorted." },
+];
+---
+<section class="wrap">
+  <h2>What I fix</h2>
+  <div class="grid">
+    {services.map(s => (
+      <div class="card">
+        <h3>{s.title}</h3>
+        <p>{s.body}</p>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px}
+  .card p{color:var(--muted);margin:0;font-size:15px}
+</style>

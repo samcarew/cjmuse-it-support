@@ -1,0 +1,30 @@
+---
+const faqs = [
+  { q: "Do I have to sign a long contract?", a: "Not at all. Pay-as-you-go support for one-off fixes, or simple project pricing for websites. No locked-in nonsense." },
+  { q: "I'm not 'techy' — will I understand what I'm buying?", a: "Absolutely. My rule: if I can't explain it in plain English, I shouldn't be selling it. You stay in control." },
+  { q: "Can you help if I'm already in a muddle with my current site?", a: "Yes. I'm an expert at untangling messy setups. Whether it's a lost password or a broken link, I can take it off your plate." },
+  { q: "How quickly can you help?", a: "I aim to respond to all enquiries within a few business hours. For solo businesses, time is literally money." },
+];
+---
+<section class="wrap faq">
+  <h2>Common questions</h2>
+  {faqs.map(f => (
+    <details>
+      <summary>{f.q}</summary>
+      <p>{f.a}</p>
+    </details>
+  ))}
+</section>
+
+<style>
+  .faq details{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:18px 22px;margin-bottom:12px;
+  }
+  .faq summary{cursor:pointer;font-weight:600;color:var(--navy);list-style:none;font-size:16px}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:"+";float:right;color:var(--gold);font-size:22px;line-height:1}
+  .faq details[open] summary::after{content:"−"}
+  .faq details[open] summary{margin-bottom:10px}
+  .faq p{color:var(--muted);margin:0;font-size:15px}
+</style>

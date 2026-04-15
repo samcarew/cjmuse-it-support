@@ -1,0 +1,33 @@
+---
+const steps = [
+  { title: "The quick chat", body: "Drop me a message via the form. We'll have a no-obligation chat about what's gone wrong." },
+  { title: "The fix", body: "I'll get to work — often remotely, so you don't even have to wait around for a visit." },
+  { title: "Back to business", body: "You get back to your clients, and I stay on standby for whenever you next need a hand." },
+];
+---
+<section class="wrap">
+  <h2>How it works</h2>
+  <div class="steps">
+    {steps.map(s => (
+      <div>
+        <strong>{s.title}</strong>
+        <p>{s.body}</p>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .steps{counter-reset:step;display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+  .steps div{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px;position:relative}
+  .steps div::before{
+    counter-increment:step;
+    content:counter(step);
+    display:inline-flex;align-items:center;justify-content:center;
+    width:34px;height:34px;border-radius:50%;
+    background:var(--navy);color:var(--gold);
+    font-weight:700;margin-bottom:14px;font-size:15px;
+  }
+  .steps strong{display:block;color:var(--navy);font-size:17px;margin-bottom:4px}
+  .steps p{color:var(--muted);font-size:15px;margin:0}
+</style>

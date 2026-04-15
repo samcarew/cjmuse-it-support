@@ -1,0 +1,73 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+const { title, description = "Plain-English IT support, website builds, email setup and malware fixes for UK solo tradies, consultants and freelancers." } = Astro.props;
+---
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <slot />
+</body>
+</html>
+
+<style is:global>
+  :root{
+    --navy:#0A1628;
+    --navy-soft:#132240;
+    --gold:#C9933A;
+    --gold-dark:#a8771f;
+    --bg:#FAFAF7;
+    --ink:#1A1A1A;
+    --muted:#6B7280;
+    --line:#E6E4DC;
+    --card:#FFFFFF;
+    --radius:14px;
+    --maxw:1040px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    background:var(--bg);
+    color:var(--ink);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  section{padding:64px 0;border-top:1px solid var(--line)}
+  section.hero{border-top:none;padding:72px 0 80px}
+  h1,h2,h3{color:var(--navy);letter-spacing:-0.02em;margin:0 0 16px}
+  h1{font-size:clamp(36px,5vw,56px);line-height:1.1;font-weight:700}
+  h2{font-size:clamp(26px,3vw,34px);font-weight:700;margin-bottom:32px}
+  h3{font-size:18px;font-weight:600;margin-bottom:6px}
+  p{margin:0 0 16px;color:#2c2c2c}
+  .sub{font-size:18px;color:var(--muted);max-width:620px}
+  .btn{
+    display:inline-block;
+    background:var(--gold);
+    color:var(--navy);
+    padding:14px 28px;
+    border-radius:10px;
+    text-decoration:none;
+    font-weight:600;
+    font-size:16px;
+    margin-top:28px;
+    border:2px solid var(--gold);
+    transition:all .15s ease;
+  }
+  .btn:hover{background:var(--gold-dark);border-color:var(--gold-dark);color:#fff}
+  @media (max-width:600px){
+    section{padding:48px 0}
+  }
+</style>
