@@ -1,0 +1,77 @@
+---
+const testimonials = [
+  { name: "Sonny",    company: "RimCity",        quote: "" },
+  { name: "Surinder", company: "Arya Consulting", quote: "" },
+  { name: "Cheng",    company: "NV Cargo",       quote: "" },
+  { name: "Alan",     company: "A&G Pipework",   quote: "" },
+  { name: "",         company: "",               quote: "" },
+];
+const placeholder = "Quote coming soon.";
+---
+<section class="wrap testimonials">
+  <h2>What clients say</h2>
+  <div class="grid">
+    {testimonials.map(t => (
+      <figure class="card">
+        <div class="mark">&ldquo;</div>
+        <blockquote>{t.quote || placeholder}</blockquote>
+        <figcaption>
+          {t.name ? (
+            <>
+              <strong>{t.name}</strong>
+              {t.company && <span> — {t.company}</span>}
+            </>
+          ) : (
+            <span class="muted">Your business next?</span>
+          )}
+        </figcaption>
+      </figure>
+    ))}
+  </div>
+</section>
+
+<style>
+  .testimonials h2{text-align:left}
+  .grid{
+    display:grid;
+    gap:20px;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  }
+  .card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:28px 26px 24px;
+    margin:0;
+    position:relative;
+    display:flex;
+    flex-direction:column;
+  }
+  .mark{
+    position:absolute;
+    top:6px;
+    right:18px;
+    font-family:Georgia,serif;
+    font-size:64px;
+    line-height:1;
+    color:var(--gold);
+    opacity:0.35;
+    pointer-events:none;
+  }
+  blockquote{
+    margin:0 0 20px;
+    font-style:italic;
+    color:var(--ink);
+    font-size:15.5px;
+    line-height:1.55;
+    flex:1;
+  }
+  figcaption{
+    font-size:14px;
+    color:var(--muted);
+    border-top:1px solid var(--line);
+    padding-top:14px;
+  }
+  figcaption strong{color:var(--navy);font-weight:600;font-style:normal}
+  figcaption .muted{color:var(--muted);font-style:italic}
+</style>
