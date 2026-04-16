@@ -37,7 +37,9 @@ const { title, description = "Plain-English IT support, computer fixes and websi
   }
   *{box-sizing:border-box}
   html,body{margin:0;padding:0}
+  html{padding-top:env(safe-area-inset-top,0)}
   body{
+    padding-top:12px;
     font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
     background:var(--bg);
     color:var(--ink);
