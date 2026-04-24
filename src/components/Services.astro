@@ -1,36 +1,36 @@
 ---
-const services = [
+const offers = [
   {
-    title: "General tech support",
-    body: "From printer tantrums to slow Wi-Fi, consider me your on-call IT department. If it's being difficult, I'll get it sorted.",
+    title: "Quick Fix Session",
+    body: "For urgent tech headaches: email issues, printer problems, Wi-Fi nonsense, slow laptops, login messes.",
+    outcome: "Get the issue diagnosed and fixed fast, usually remotely.",
     icon: "support",
   },
   {
-    title: "Email & domain setup",
-    body: "Get a proper branded email address that looks the business. I'll handle the setup and make sure your invoices land in customer inboxes.",
+    title: "Professional Setup",
+    body: "For solo operators who need branded email, domain setup, calendars, signatures and a cleaner business presence.",
+    outcome: "Look credible, stay organised and stop losing time to DIY setup.",
     icon: "email",
   },
   {
-    title: "Laptop & device security",
-    body: "Virus removal, security updates, password vaults and device lockdown. One dodgy email shouldn't be able to sink your whole week.",
+    title: "Security & Backup Check",
+    body: "For businesses one bad click away from a bad week: device security, password vaults and Microsoft 365 backup.",
+    outcome: "Reduce risk and make sure your business data is recoverable.",
     icon: "shield",
   },
   {
-    title: "Professional websites",
-    body: "Simple, modern sites that actually work on a phone. No hidden monthly fees — just a solid, professional home for your business.",
+    title: "Simple Business Website",
+    body: "For consultants and one-man bands who need a clean, modern website that works on mobile and looks professional.",
+    outcome: "A site that helps you win trust without a bloated build process.",
     icon: "browser",
-  },
-  {
-    title: "Microsoft 365 backup",
-    body: "Microsoft doesn't back up your emails, files or contacts for you — if it's deleted, it's gone. I'll set up automatic daily backups so nothing important vanishes.",
-    icon: "cloud",
   },
 ];
 ---
-<section class="wrap">
-  <h2>What I fix</h2>
+<section class="wrap" id="offers">
+  <h2>Fixed-scope offers for solo operators</h2>
+  <p class="intro">Clear offers sell better than vague “IT support”. These are built for people who need fast help, sensible advice and a finish line.</p>
   <div class="grid">
-    {services.map(s => (
+    {offers.map(s => (
       <div class="card">
         <div class="icon">
           {s.icon === "support" && (
@@ -62,22 +62,17 @@ const services = [
               <circle cx="11.1" cy="6.5" r="0.6" fill="currentColor" />
             </svg>
           )}
-          {s.icon === "cloud" && (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M17.5 19H7a5 5 0 1 1 .7-9.95A6 6 0 0 1 19 11a4 4 0 0 1-1.5 8z" />
-              <path d="M12 12v5" />
-              <path d="m9 14 3 3 3-3" />
-            </svg>
-          )}
         </div>
         <h3>{s.title}</h3>
         <p>{s.body}</p>
+        <div class="outcome"><strong>Outcome:</strong> {s.outcome}</div>
       </div>
     ))}
   </div>
 </section>
 
 <style>
+  .intro{max-width:760px;color:var(--muted);margin-top:8px}
   .grid{
     display:grid;
     gap:20px;
@@ -87,19 +82,22 @@ const services = [
     background:var(--card);
     border:1px solid var(--line);
     border-radius:var(--radius);
-    padding:26px;
+    padding:28px 24px;
+    text-align:left;
   }
-  .card p{color:var(--muted);margin:0;font-size:15px}
+  .card p{color:var(--muted);margin:0;font-size:14.5px;line-height:1.6}
+  .card h3{font-size:18px;margin-bottom:10px}
+  .outcome{margin-top:14px;padding-top:14px;border-top:1px solid var(--line);font-size:14px;color:var(--ink)}
   .icon{
-    width:48px;
-    height:48px;
-    border-radius:12px;
+    width:56px;
+    height:56px;
+    border-radius:14px;
     background:rgba(201,147,58,0.12);
     color:var(--navy);
-    display:flex;
+    display:inline-flex;
     align-items:center;
     justify-content:center;
-    margin-bottom:18px;
+    margin-bottom:16px;
   }
-  .icon svg{width:26px;height:26px}
+  .icon svg{width:30px;height:30px}
 </style>

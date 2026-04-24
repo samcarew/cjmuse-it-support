@@ -1,29 +1,20 @@
 ---
-const testimonials = [
-  { name: "Sonny",    company: "RimCity",        quote: "" },
-  { name: "Surinder", company: "Arya Consulting", quote: "" },
-  { name: "Cheng",    company: "NV Cargo",       quote: "" },
-  { name: "Alan",     company: "A&G Pipework",   quote: "" },
-  { name: "",         company: "",               quote: "" },
+const proofs = [
+  { title: "Email, domains and setup", body: "Ideal for consultants and solo operators who need to look credible fast and stop leaking trust through messy tech." },
+  { title: "Fixes that protect billable time", body: "The strongest buying trigger here is lost time. Position the service around getting people back to work quickly." },
+  { title: "Simple websites for service businesses", body: "A clean, mobile-friendly site is often enough for a one-man band. Sell practical credibility, not digital theatre." },
 ];
-const placeholder = "Quote coming soon.";
 ---
 <section class="wrap testimonials">
-  <h2>What clients say</h2>
+  <h2>Best-fit clients</h2>
+  <p class="intro">The sweet spot is owner-led businesses where broken tech directly hits revenue, responsiveness or professionalism.</p>
   <div class="grid">
-    {testimonials.map(t => (
+    {proofs.map(t => (
       <figure class="card">
         <div class="mark">&ldquo;</div>
-        <blockquote>{t.quote || placeholder}</blockquote>
+        <blockquote>{t.body}</blockquote>
         <figcaption>
-          {t.name ? (
-            <>
-              <strong>{t.name}</strong>
-              {t.company && <span> — {t.company}</span>}
-            </>
-          ) : (
-            <span class="muted">Your business next?</span>
-          )}
+          <strong>{t.title}</strong>
         </figcaption>
       </figure>
     ))}
@@ -32,6 +23,7 @@ const placeholder = "Quote coming soon.";
 
 <style>
   .testimonials h2{text-align:left}
+  .intro{max-width:760px;color:var(--muted);margin-top:8px}
   .grid{
     display:grid;
     gap:20px;

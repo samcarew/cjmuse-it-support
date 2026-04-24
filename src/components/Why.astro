@@ -1,24 +1,60 @@
 ---
 const points = [
-  { title: "Zero jargon", body: "I speak human, not \"system architecture.\" You'll always know exactly what I'm doing and what it costs." },
-  { title: "Built for solos", body: "I know you don't have a corporate IT budget. My services are priced specifically for freelancers and tradies." },
-  { title: "Properly reliable", body: "No overseas call centres. A direct line to a real person in the UK who gets that when your tech is down, you aren't earning." },
+  {
+    title: "Built for solo operators",
+    body: "You are the business. I focus on the fixes that protect your time, client delivery and credibility.",
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>`,
+  },
+  {
+    title: "Commercially sensible",
+    body: "No oversized retainers, no bloated scope, no corporate IT theatre. Just the right fix for the stage you're at.",
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>`,
+  },
+  {
+    title: "Fast, direct help",
+    body: "A real person in the UK who can often sort things remotely. Less delay, less friction, less lost time.",
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>`,
+  },
 ];
 ---
 <section class="wrap">
-  <h2>Why CJMuse?</h2>
+  <h2>Why this works for one-man bands</h2>
   <div class="why">
     {points.map(p => (
-      <div>
-        <strong>{p.title}</strong>
-        <p>{p.body}</p>
+      <div class="point">
+        <div class="point-icon" set:html={p.icon} />
+        <div>
+          <strong>{p.title}</strong>
+          <p>{p.body}</p>
+        </div>
       </div>
     ))}
   </div>
 </section>
 
 <style>
-  .why{display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
-  .why div strong{display:block;color:var(--navy);font-size:17px;margin-bottom:4px}
-  .why div p{color:var(--muted);font-size:15px;margin:0}
+  .why{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+  .point{
+    display:flex;
+    gap:16px;
+    align-items:flex-start;
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:24px;
+  }
+  .point-icon{
+    flex-shrink:0;
+    width:44px;
+    height:44px;
+    border-radius:12px;
+    background:var(--navy);
+    color:var(--gold);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .point-icon :global(svg){width:22px;height:22px}
+  .point strong{display:block;color:var(--navy);font-size:16px;margin-bottom:4px}
+  .point p{color:var(--muted);font-size:14.5px;margin:0;line-height:1.5}
 </style>
