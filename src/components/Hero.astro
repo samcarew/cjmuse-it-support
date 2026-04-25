@@ -1,26 +1,119 @@
 ---
+const proofPoints = [
+  "For consultants, solo service firms and one-man-band operators",
+  "Remote-first support so you can get moving quickly",
+  "Clear advice, clear scope, no corporate IT nonsense",
+];
+
+const systemSignals = [
+  { label: 'Response model', value: 'Remote-first triage' },
+  { label: 'Core stack', value: 'Microsoft 365, devices, domains' },
+  { label: 'Commercial lens', value: 'Protect uptime and credibility' },
+];
 ---
 <section class="hero wrap">
-  <div class="eyebrow">IT support for one-man bands and consultants</div>
-  <h1>Stop losing time to broken tech.<br />Get back to billable work.</h1>
-  <p class="sub">Plain-English IT help for solo operators who need things fixed fast. Email, laptops, websites, Microsoft 365 and security — sorted without jargon, contracts or drama.</p>
-  <div class="actions">
-    <a class="btn" href="#contact">Get help now</a>
-    <a class="btn secondary" href="#offers">See fixed-price offers</a>
+  <div class="hero-grid">
+    <div class="hero-copy">
+      <div class="eyebrow">IT support for one-man bands and consultants</div>
+      <h1>Stop losing time to broken tech. Get back to billable work.</h1>
+      <p class="sub">Plain-English IT help for solo operators who need things fixed fast. Email, laptops, websites, Microsoft 365 and security — sorted without jargon, contracts or drama.</p>
+      <div class="actions">
+        <a class="btn" href="#contact">Get help now</a>
+        <a class="btn secondary" href="#offers">See fixed-price offers</a>
+      </div>
+      <ul class="bullets">
+        {proofPoints.map((point) => <li>{point}</li>)}
+      </ul>
+    </div>
+
+    <div class="hero-panel">
+      <div class="interface-shell">
+        <div class="interface-topbar">
+          <span></span><span></span><span></span>
+        </div>
+        <div class="interface-main">
+          <div class="signal-cluster">
+            <div class="signal-card signal-primary">
+              <div class="signal-label">System state</div>
+              <strong>Stable, secure, client-ready</strong>
+              <p>Setup, support and fixes framed like a calm operating system rather than generic IT noise.</p>
+            </div>
+            <div class="signal-metrics">
+              {systemSignals.map((item) => (
+                <div class="metric-card">
+                  <span>{item.label}</span>
+                  <strong>{item.value}</strong>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div class="workflow-column">
+            <div class="workflow-card workflow-accent">
+              <span class="workflow-tag">Best fit</span>
+              <strong>Solo operators where tech failure directly hits revenue</strong>
+              <p>Consultants, owner-led service firms and one-person businesses who need speed, clarity and credibility.</p>
+            </div>
+            <div class="workflow-grid">
+              <div class="workflow-card compact">
+                <span class="workflow-tag">Buyer trigger</span>
+                <strong>Lost time</strong>
+                <p>Lead with speed, relief and trust rather than technical depth.</p>
+              </div>
+              <div class="workflow-card compact quote-card">
+                <span class="quote-mark">“</span>
+                <p>Your clients do not care why the laptop broke. They care whether you still deliver.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <ul class="bullets">
-    <li>For consultants, solo service firms and one-man-band operators</li>
-    <li>Remote-first support so you can get moving quickly</li>
-    <li>Clear advice, clear scope, no corporate IT nonsense</li>
-  </ul>
 </section>
 
 <style>
-  .eyebrow{display:inline-block;margin-bottom:14px;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold)}
-  .hero .sub{margin-top:10px;font-size:20px;max-width:820px}
-  .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
-  .btn.secondary{background:transparent;color:var(--navy);border:1px solid var(--line)}
-  .bullets{margin:22px 0 0;padding:0;list-style:none;display:grid;gap:10px;max-width:760px}
-  .bullets li{position:relative;padding-left:22px;color:var(--muted)}
-  .bullets li::before{content:"";position:absolute;left:0;top:9px;width:8px;height:8px;border-radius:50%;background:var(--gold)}
+  .hero-grid{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(320px,.92fr);gap:34px;align-items:center;width:100%}
+  .hero-copy{max-width:720px}
+  .eyebrow{display:inline-flex;align-items:center;gap:10px;margin-bottom:18px;font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+  .eyebrow::before{content:"";width:36px;height:1px;background:rgba(183,133,63,.65)}
+  .hero .sub{margin-top:12px}
+  .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+  .btn.secondary{background:rgba(255,255,255,.58);color:var(--navy);border:1px solid var(--line-strong);box-shadow:inset 0 1px 0 rgba(255,255,255,.55)}
+  .btn.secondary:hover{background:rgba(255,255,255,.82);color:var(--navy)}
+  .bullets{margin:28px 0 0;padding:0;list-style:none;display:grid;gap:12px;max-width:720px}
+  .bullets li{position:relative;padding-left:26px;color:var(--muted)}
+  .bullets li::before{content:"";position:absolute;left:0;top:10px;width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,var(--gold),#d9b074);box-shadow:0 0 0 5px rgba(183,133,63,.12)}
+  .hero-panel{display:grid}
+  .interface-shell{background:linear-gradient(180deg,rgba(11,18,29,.98),rgba(17,28,44,.96));border:1px solid rgba(255,255,255,.07);border-radius:34px;padding:18px;box-shadow:0 32px 70px -34px rgba(16,24,38,.62), inset 0 1px 0 rgba(255,255,255,.06);position:relative;overflow:hidden}
+  .interface-shell::after{content:"";position:absolute;inset:auto -10% -30% 35%;height:220px;background:radial-gradient(circle,rgba(183,133,63,.22) 0%,rgba(183,133,63,0) 70%);pointer-events:none}
+  .interface-topbar{display:flex;gap:8px;padding:4px 4px 18px}
+  .interface-topbar span{width:10px;height:10px;border-radius:999px;background:rgba(255,255,255,.16)}
+  .interface-main{display:grid;grid-template-columns:1.05fr .95fr;gap:16px;position:relative;z-index:1}
+  .signal-cluster,.workflow-column{display:grid;gap:16px}
+  .signal-card,.metric-card,.workflow-card{border-radius:26px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.05);backdrop-filter:blur(18px);box-shadow:inset 0 1px 0 rgba(255,255,255,.05)}
+  .signal-card{padding:24px 22px;min-height:224px;display:flex;flex-direction:column;justify-content:flex-end;background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.03)), radial-gradient(circle at top left,rgba(183,133,63,.24),rgba(183,133,63,0) 52%)}
+  .signal-label,.workflow-tag,.metric-card span{display:block;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+  .signal-card strong,.workflow-card strong{display:block;font-family:'Outfit',system-ui,sans-serif;letter-spacing:-0.04em}
+  .signal-card strong{font-size:34px;line-height:1.02;max-width:10ch;color:#fff;margin:12px 0 12px}
+  .signal-card p,.workflow-card p{margin:0;color:rgba(244,241,234,.74);line-height:1.65;font-size:14px}
+  .signal-metrics{display:grid;gap:12px}
+  .metric-card{padding:16px 18px 18px}
+  .metric-card strong{display:block;margin-top:10px;font-size:17px;line-height:1.35;color:#f7f3eb;font-weight:600}
+  .workflow-column{align-content:start}
+  .workflow-card{padding:22px}
+  .workflow-accent{background:linear-gradient(180deg,rgba(255,255,255,.1),rgba(255,255,255,.04));min-height:190px}
+  .workflow-accent strong{font-size:28px;line-height:1.04;color:#fff;margin:14px 0 12px}
+  .workflow-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .compact strong{font-size:22px;line-height:1.04;color:#fff;margin:14px 0 10px}
+  .quote-card{position:relative;overflow:hidden}
+  .quote-mark{position:absolute;top:8px;right:14px;font-family:'Outfit',system-ui,sans-serif;font-size:64px;line-height:1;color:rgba(183,133,63,.18)}
+  @media (max-width:980px){
+    .hero-grid{grid-template-columns:1fr;gap:24px}
+    .hero-copy{max-width:none}
+    .interface-main{grid-template-columns:1fr}
+  }
+  @media (max-width:640px){
+    .workflow-grid{grid-template-columns:1fr}
+    .signal-card strong,.workflow-accent strong{font-size:26px}
+  }
 </style>
