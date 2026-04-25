@@ -1,0 +1,112 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppFab from '../components/WhatsAppFab.astro';
+
+const lastUpdated = "17 April 2026";
+---
+<Layout title="Privacy Policy — CJMuse IT Support" description="How CJMuse IT Support collects, uses and protects your personal data under UK GDPR.">
+  <Header />
+
+  <article class="wrap prose">
+    <p class="back"><a href="/">← Back to home</a></p>
+    <h1>Privacy Policy</h1>
+    <p class="meta">Last updated: {lastUpdated}</p>
+
+    <p>This policy explains how CJMuse IT Support ("CJMuse", "I", "my") collects, uses and protects your personal information when you visit this website or enquire about services. I take your privacy seriously and only collect what I need to respond to you and deliver the services you ask for.</p>
+
+    <h2>Who I am</h2>
+    <p>
+      CJMuse IT Support is operated by Sam Carew (trading as CJMuse IT Support), 1, Suite Ra01, 195-197 Wood Street, London, E17 3NU, United Kingdom.
+      Contact: <a href="mailto:hello@cjmuse.com">hello@cjmuse.com</a>.
+      I am the data controller for the personal information described in this policy.
+    </p>
+
+    <h2>What I collect</h2>
+    <ul>
+      <li><strong>Contact form submissions:</strong> name, email address, phone number (optional), and the message you send.</li>
+      <li><strong>Email and phone correspondence:</strong> any information you share with me directly when you get in touch.</li>
+      <li><strong>Technical data:</strong> standard server logs (IP address, browser type, pages visited) generated automatically when you visit the site, held by my hosting provider Cloudflare for security and performance purposes.</li>
+    </ul>
+    <p>I do not use tracking cookies, advertising pixels, or third-party analytics on this site.</p>
+
+    <h2>Why I use it</h2>
+    <ul>
+      <li>To reply to your enquiry and discuss the help you need.</li>
+      <li>To deliver the services you engage me to provide (for example support calls, website builds, email setup).</li>
+      <li>To send invoices and keep accurate business records as required by UK tax law.</li>
+      <li>To keep the website available and secure.</li>
+    </ul>
+
+    <h2>Legal basis</h2>
+    <p>Under UK GDPR, I rely on the following lawful bases:</p>
+    <ul>
+      <li><strong>Consent</strong> — when you submit the contact form or message me.</li>
+      <li><strong>Contract</strong> — once you engage me to provide a service.</li>
+      <li><strong>Legitimate interests</strong> — to respond to enquiries, protect the site from abuse, and keep proper business records.</li>
+      <li><strong>Legal obligation</strong> — for tax, accounting and statutory record-keeping.</li>
+    </ul>
+
+    <h2>Who I share it with</h2>
+    <p>I do not sell your data. I only share it with service providers who help me run my business, and only to the extent they need it:</p>
+    <ul>
+      <li><strong>Formspree</strong> — processes contact form submissions and forwards them to me by email. Formspree is based in the United States; data is transferred under UK-approved safeguards. See <a href="https://formspree.io/legal/privacy-policy" target="_blank" rel="noopener noreferrer">Formspree's privacy policy</a>.</li>
+      <li><strong>Cloudflare</strong> — hosts the website and handles DNS, TLS and edge security. Processes server log data. See <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener noreferrer">Cloudflare's privacy policy</a>.</li>
+      <li><strong>Google Workspace</strong> — my business email provider (cjmuse.com addresses).</li>
+      <li><strong>HMRC / my accountant</strong> — where required for tax and statutory obligations.</li>
+    </ul>
+
+    <h2>How long I keep it</h2>
+    <ul>
+      <li><strong>Enquiries that don't turn into work:</strong> up to 12 months from your last contact, then deleted.</li>
+      <li><strong>Client records and communications:</strong> up to 6 years after our last engagement, as required for UK tax and accounting purposes.</li>
+      <li><strong>Server logs:</strong> retained by Cloudflare according to their policy (typically a short period for security and diagnostics).</li>
+    </ul>
+
+    <h2>Your rights</h2>
+    <p>Under UK GDPR you have the right to:</p>
+    <ul>
+      <li>Access a copy of the personal data I hold about you</li>
+      <li>Correct inaccurate data</li>
+      <li>Have your data deleted (subject to legal retention requirements)</li>
+      <li>Restrict or object to how I use it</li>
+      <li>Ask for your data in a portable format</li>
+      <li>Withdraw your consent at any time</li>
+    </ul>
+    <p>To exercise any of these, email <a href="mailto:hello@cjmuse.com">hello@cjmuse.com</a>. I will respond within one month.</p>
+
+    <h2>Security</h2>
+    <p>The site is served over HTTPS. I use reputable providers (Cloudflare, Google Workspace, Formspree) with industry-standard security. No system is completely secure, so please don't send sensitive information (like passwords or card details) by email — I will always ask you to share these through a secure method if they're needed.</p>
+
+    <h2>Complaints</h2>
+    <p>If you think I've mishandled your data, please contact me first so I can try to put it right. You also have the right to complain to the UK Information Commissioner's Office (ICO) at <a href="https://ico.org.uk" target="_blank" rel="noopener noreferrer">ico.org.uk</a> or on 0303 123 1113.</p>
+
+    <h2>Changes to this policy</h2>
+    <p>I may update this policy occasionally. The "last updated" date at the top shows when changes were made. Material changes will be flagged clearly on this page.</p>
+  </article>
+
+  <Footer />
+  <WhatsAppFab />
+</Layout>
+
+<style>
+  .prose{
+    max-width:720px;
+    padding-top:40px;
+    padding-bottom:72px;
+    color:#2c2c2c;
+  }
+  .prose h1{font-size:clamp(30px,4vw,42px);margin-bottom:8px}
+  .prose h2{font-size:22px;margin-top:40px;margin-bottom:12px}
+  .prose p, .prose li{font-size:16px;line-height:1.7}
+  .prose ul{padding-left:22px;margin:0 0 16px}
+  .prose li{margin-bottom:8px}
+  .prose a{color:var(--navy);text-decoration:underline;text-decoration-color:var(--gold);text-underline-offset:3px}
+  .prose a:hover{color:var(--gold-dark)}
+  .prose .meta{color:var(--muted);font-size:14px;margin-bottom:32px}
+  .prose .back{margin-bottom:24px}
+  .prose .back a{color:var(--muted);text-decoration:none;font-size:14px}
+  .prose .back a:hover{color:var(--navy)}
+  .prose strong{color:var(--navy)}
+</style>

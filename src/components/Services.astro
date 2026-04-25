@@ -26,9 +26,14 @@ const offers = [
   },
 ];
 ---
-<section class="wrap" id="offers">
-  <h2>Fixed-scope offers for solo operators</h2>
-  <p class="intro">Clear offers sell better than vague “IT support”. These are built for people who need fast help, sensible advice and a finish line.</p>
+<section class="wrap offers-section" id="offers">
+  <div class="section-heading">
+    <div>
+      <span class="section-tag">Productised offers</span>
+      <h2>Fixed-scope offers for solo operators</h2>
+    </div>
+    <p class="intro">Clear offers sell better than vague “IT support”. These are built for people who need fast help, sensible advice and a finish line.</p>
+  </div>
   <div class="grid">
     {offers.map(s => (
       <div class="card">
@@ -72,32 +77,39 @@ const offers = [
 </section>
 
 <style>
-  .intro{max-width:760px;color:var(--muted);margin-top:8px}
+  .offers-section{position:relative}
+  .section-heading{display:grid;grid-template-columns:minmax(0,.95fr) minmax(280px,.85fr);gap:24px;align-items:end;margin-bottom:30px}
+  .section-tag{display:inline-flex;margin-bottom:14px;font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+  .intro{max-width:760px;color:var(--muted);margin:0;font-size:16px;line-height:1.75}
   .grid{
     display:grid;
-    gap:20px;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:18px;
+    grid-template-columns:repeat(2,minmax(0,1fr));
   }
   .card{
-    background:var(--card);
-    border:1px solid var(--line);
-    border-radius:var(--radius);
-    padding:28px 24px;
+    background:linear-gradient(180deg,rgba(255,253,248,.95),rgba(255,255,255,.88));
+    border:1px solid rgba(255,255,255,.75);
+    border-radius:30px;
+    padding:30px 28px;
     text-align:left;
+    box-shadow:var(--shadow-card), inset 0 1px 0 rgba(255,255,255,.68);
   }
-  .card p{color:var(--muted);margin:0;font-size:14.5px;line-height:1.6}
-  .card h3{font-size:18px;margin-bottom:10px}
-  .outcome{margin-top:14px;padding-top:14px;border-top:1px solid var(--line);font-size:14px;color:var(--ink)}
+  .card p{color:var(--muted);margin:0;font-size:15px;line-height:1.7}
+  .card h3{margin-bottom:12px}
+  .outcome{margin-top:18px;padding-top:16px;border-top:1px solid rgba(16,24,38,.08);font-size:14px;color:var(--ink)}
   .icon{
-    width:56px;
-    height:56px;
-    border-radius:14px;
-    background:rgba(201,147,58,0.12);
+    width:58px;
+    height:58px;
+    border-radius:18px;
+    background:rgba(183,133,63,0.12);
     color:var(--navy);
     display:inline-flex;
     align-items:center;
     justify-content:center;
-    margin-bottom:16px;
+    margin-bottom:18px;
   }
   .icon svg{width:30px;height:30px}
+  @media (max-width:860px){
+    .section-heading,.grid{grid-template-columns:1fr}
+  }
 </style>

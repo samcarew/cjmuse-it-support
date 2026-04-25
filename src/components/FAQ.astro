@@ -7,24 +7,39 @@ const faqs = [
 ];
 ---
 <section class="wrap faq">
-  <h2>Common questions</h2>
-  {faqs.map(f => (
-    <details>
-      <summary>{f.q}</summary>
-      <p>{f.a}</p>
-    </details>
-  ))}
+  <div class="faq-shell">
+    <div class="faq-intro">
+      <span class="section-tag">FAQ</span>
+      <h2>Common questions</h2>
+      <p>Clear answers reduce friction for solo operators who want help quickly without falling into an opaque IT process.</p>
+    </div>
+    <div class="faq-list">
+      {faqs.map(f => (
+        <details>
+          <summary>{f.q}</summary>
+          <p>{f.a}</p>
+        </details>
+      ))}
+    </div>
+  </div>
 </section>
 
 <style>
+  .faq-shell{display:grid;grid-template-columns:minmax(0,.75fr) minmax(0,1.05fr);gap:24px;align-items:start}
+  .section-tag{display:inline-flex;margin-bottom:14px;font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+  .faq-intro p{max-width:46ch;color:var(--muted);line-height:1.75}
+  .faq-list{display:grid;gap:12px}
   .faq details{
-    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
-    padding:18px 22px;margin-bottom:12px;
+    background:rgba(255,255,255,.82);border:1px solid rgba(255,255,255,.76);border-radius:24px;
+    padding:20px 22px;box-shadow:var(--shadow-card), inset 0 1px 0 rgba(255,255,255,.65);
   }
-  .faq summary{cursor:pointer;font-weight:600;color:var(--navy);list-style:none;font-size:16px}
+  .faq summary{cursor:pointer;font-weight:700;color:var(--navy);list-style:none;font-size:16px;padding-right:26px}
   .faq summary::-webkit-details-marker{display:none}
   .faq summary::after{content:"+";float:right;color:var(--gold);font-size:22px;line-height:1}
   .faq details[open] summary::after{content:"−"}
   .faq details[open] summary{margin-bottom:10px}
-  .faq p{color:var(--muted);margin:0;font-size:15px}
+  .faq p{color:var(--muted);margin:0;font-size:15px;line-height:1.7}
+  @media (max-width:900px){
+    .faq-shell{grid-template-columns:1fr}
+  }
 </style>

@@ -1,11 +1,26 @@
 ---
 ---
-<header class="wrap">
-  <div class="logo">CJ<span>Muse</span></div>
+<header class="wrap header-shell">
+  <div class="logo-lockup">
+    <div class="logo-mark">CJ</div>
+    <div class="logo-text">
+      <div class="logo">CJMuse</div>
+      <div class="tag">IT support for solo operators</div>
+    </div>
+  </div>
+  <a class="header-cta" href="#contact">Start with the issue</a>
 </header>
 
 <style>
-  header{padding:28px 0}
-  .logo{font-weight:700;font-size:20px;color:var(--navy);letter-spacing:-0.01em}
-  .logo span{color:var(--gold)}
+  .header-shell{padding:26px 0 12px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+  .logo-lockup{display:flex;align-items:center;gap:14px}
+  .logo-mark{width:46px;height:46px;border-radius:15px;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Outfit',system-ui,sans-serif;font-weight:800;letter-spacing:-0.04em;box-shadow:var(--shadow-card)}
+  .logo{font-family:'Outfit',system-ui,sans-serif;font-weight:700;font-size:20px;color:var(--navy);letter-spacing:-0.03em}
+  .tag{font-size:13px;color:var(--muted)}
+  .header-cta{display:inline-flex;align-items:center;justify-content:center;padding:11px 18px;border-radius:999px;border:1px solid var(--line-strong);text-decoration:none;color:var(--navy);background:rgba(255,255,255,.52);backdrop-filter:blur(14px);box-shadow:inset 0 1px 0 rgba(255,255,255,.55);font-weight:700;font-size:14px;transition:transform .24s cubic-bezier(.16,1,.3,1),border-color .24s cubic-bezier(.16,1,.3,1),background .24s cubic-bezier(.16,1,.3,1)}
+  .header-cta:hover{transform:translateY(-1px);border-color:rgba(16,24,38,.24);background:rgba(255,255,255,.72)}
+  .header-cta:active{transform:translateY(0) scale(.98)}
+  @media (max-width:640px){
+    .header-shell{padding:22px 0 8px;align-items:flex-start;flex-direction:column}
+  }
 </style>

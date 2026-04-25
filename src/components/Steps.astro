@@ -5,8 +5,11 @@ const steps = [
   { title: "Get back to work", body: "Once the issue is fixed or the setup is complete, you’re back to serving clients instead of wrestling with tech." },
 ];
 ---
-<section class="wrap">
-  <h2>How working together feels</h2>
+<section class="wrap steps-section">
+  <div class="steps-header">
+    <span class="section-tag">Process</span>
+    <h2>How working together feels</h2>
+  </div>
   <div class="steps">
     {steps.map(s => (
       <div>
@@ -18,16 +21,22 @@ const steps = [
 </section>
 
 <style>
-  .steps{counter-reset:step;display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
-  .steps div{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px;position:relative}
+  .steps-header{max-width:620px;margin-bottom:26px}
+  .section-tag{display:inline-flex;margin-bottom:14px;font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+  .steps{counter-reset:step;display:grid;gap:18px;grid-template-columns:repeat(3,minmax(0,1fr))}
+  .steps div{background:linear-gradient(180deg,rgba(16,24,38,.97),rgba(20,32,52,.95));border:1px solid rgba(255,255,255,.08);border-radius:30px;padding:28px;position:relative;box-shadow:var(--shadow-card)}
   .steps div::before{
     counter-increment:step;
     content:counter(step);
     display:inline-flex;align-items:center;justify-content:center;
-    width:34px;height:34px;border-radius:50%;
-    background:var(--navy);color:var(--gold);
-    font-weight:700;margin-bottom:14px;font-size:15px;
+    width:38px;height:38px;border-radius:999px;
+    background:rgba(183,133,63,.14);color:var(--gold);
+    font-weight:800;margin-bottom:18px;font-size:15px;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.08);
   }
-  .steps strong{display:block;color:var(--navy);font-size:17px;margin-bottom:4px}
-  .steps p{color:var(--muted);font-size:15px;margin:0}
+  .steps strong{display:block;color:#f7f3eb;font-size:18px;margin-bottom:8px}
+  .steps p{color:rgba(247,243,235,.72);font-size:15px;margin:0;line-height:1.7}
+  @media (max-width:900px){
+    .steps{grid-template-columns:1fr}
+  }
 </style>

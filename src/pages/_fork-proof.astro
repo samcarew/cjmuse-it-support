@@ -1,0 +1,98 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Services from '../components/Services.astro';
+import Why from '../components/Why.astro';
+import Steps from '../components/Steps.astro';
+import Testimonials from '../components/Testimonials.astro';
+import FAQ from '../components/FAQ.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppFab from '../components/WhatsAppFab.astro';
+---
+<Layout title="CJMuse IT Support — Proof Visual Fork">
+  <Header />
+
+  <div class="fork-banner wrap">
+    <span>Fork 1</span>
+    <p>Restrained proof visuals inside the current premium direction.</p>
+  </div>
+
+  <Hero />
+
+  <section class="wrap proof-strip">
+    <div class="proof-head">
+      <span class="section-tag">Visual proof layer</span>
+      <h2>Small visuals that support trust without turning into stock-photo filler</h2>
+      <p>These are the types of visual assets that add credibility: setup checklists, website before/after snapshots, and service dashboards that imply competence.</p>
+    </div>
+
+    <div class="proof-grid">
+      <article class="proof-card dashboard-card">
+        <div class="mini-window">
+          <span></span><span></span><span></span>
+        </div>
+        <div class="mini-header">
+          <strong>Microsoft 365 tidy-up</strong>
+          <small>Operator setup summary</small>
+        </div>
+        <div class="checklist">
+          <div><b>Email routing</b><span>Corrected</span></div>
+          <div><b>Signature setup</b><span>Applied</span></div>
+          <div><b>Backup status</b><span>Protected</span></div>
+          <div><b>MFA coverage</b><span>Enabled</span></div>
+        </div>
+      </article>
+
+      <article class="proof-card site-card">
+        <div class="site-frame before">Before</div>
+        <div class="site-frame after">After</div>
+        <p>Simple before/after framing makes the website offer feel tangible.</p>
+      </article>
+
+      <article class="proof-card note-card">
+        <span class="pill">What this says visually</span>
+        <h3>Calm control</h3>
+        <p>The impression is not “flashy designer”. It is “someone competent has this under control”. That is the right signal for this market.</p>
+      </article>
+    </div>
+  </section>
+
+  <Services />
+  <Why />
+  <Steps />
+  <Testimonials />
+  <FAQ />
+  <Contact />
+  <Footer />
+  <WhatsAppFab />
+</Layout>
+
+<style>
+  .fork-banner{display:flex;align-items:center;gap:12px;padding-top:10px;color:var(--muted)}
+  .fork-banner span,.section-tag,.pill{display:inline-flex;font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+  .fork-banner p{margin:0}
+  .proof-strip{padding-top:0}
+  .proof-head{max-width:760px;margin-bottom:28px}
+  .proof-grid{display:grid;grid-template-columns:1.1fr 1fr .8fr;gap:18px}
+  .proof-card{background:rgba(255,255,255,.82);border:1px solid rgba(255,255,255,.76);border-radius:30px;padding:24px;box-shadow:var(--shadow-card), inset 0 1px 0 rgba(255,255,255,.65)}
+  .mini-window{display:flex;gap:8px;margin-bottom:18px}
+  .mini-window span{width:10px;height:10px;border-radius:999px;background:rgba(16,24,38,.14)}
+  .mini-header strong{display:block;font-family:'Outfit',system-ui,sans-serif;font-size:24px;letter-spacing:-0.04em;color:var(--navy)}
+  .mini-header small{color:var(--muted)}
+  .checklist{display:grid;gap:12px;margin-top:18px}
+  .checklist div{display:flex;justify-content:space-between;gap:16px;padding:12px 14px;border-radius:18px;background:rgba(244,241,234,.9);font-size:14px}
+  .checklist span{color:#1d6f53;font-weight:700}
+  .site-card{display:grid;gap:14px;align-content:start}
+  .site-frame{min-height:160px;border-radius:22px;padding:18px;font-family:'Outfit',system-ui,sans-serif;font-size:28px;display:flex;align-items:flex-end}
+  .site-frame.before{background:linear-gradient(180deg,#d9d4ca,#cfc6b7);color:#4f5662}
+  .site-frame.after{background:linear-gradient(180deg,#101826,#24354f);color:#f4f1ea}
+  .site-card p,.note-card p{margin:0;color:var(--muted);line-height:1.7}
+  .note-card{background:linear-gradient(180deg,rgba(16,24,38,.98),rgba(20,32,52,.95));color:#f4f1ea}
+  .note-card h3{color:#fff;margin-top:16px}
+  .note-card p{color:rgba(244,241,234,.76)}
+  @media (max-width:980px){
+    .proof-grid{grid-template-columns:1fr}
+  }
+</style>

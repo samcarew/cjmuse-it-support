@@ -1,0 +1,125 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const concepts = [
+  {
+    name: 'Direction A — Abstract competence',
+    note: 'Use interface fragments, setup cards and system visuals. Safest for premium trust.',
+    tone: 'Recommended',
+    className: 'concept-a',
+  },
+  {
+    name: 'Direction B — Real operator photography',
+    note: 'A high-quality authentic desk or operator shot can work if it feels real, not corporate.',
+    tone: 'Conditional',
+    className: 'concept-b',
+  },
+  {
+    name: 'Direction C — Generic stock style',
+    note: 'This is the one to avoid. It tends to make the brand feel cheaper and less sharp.',
+    tone: 'Avoid',
+    className: 'concept-c',
+  },
+];
+---
+<Layout title="CJMuse IT Support — Imagery Concept Forks">
+  <Header />
+
+  <section class="wrap concept-hero">
+    <span class="section-tag">Fork 2</span>
+    <h1>Three imagery directions, side by side.</h1>
+    <p class="sub">This fork is not about shipping all three. It is about seeing which imagery language strengthens the brand and which one weakens it.</p>
+  </section>
+
+  <section class="wrap concept-grid">
+    {concepts.map((concept) => (
+      <article class={`concept-card ${concept.className}`}>
+        <div class="concept-art">
+          {concept.className === 'concept-a' && (
+            <div class="abstract-ui">
+              <div class="bar"></div>
+              <div class="panel-row">
+                <div class="panel tall"></div>
+                <div class="panel"></div>
+              </div>
+              <div class="signal-lines">
+                <span></span><span></span><span></span>
+              </div>
+            </div>
+          )}
+          {concept.className === 'concept-b' && (
+            <div class="operator-scene">
+              <div class="desk"></div>
+              <div class="screen"></div>
+              <div class="person"></div>
+              <div class="lamp"></div>
+            </div>
+          )}
+          {concept.className === 'concept-c' && (
+            <div class="stock-scene">
+              <div class="bubble one"></div>
+              <div class="bubble two"></div>
+              <div class="bubble three"></div>
+            </div>
+          )}
+        </div>
+        <div class="concept-meta">
+          <span class={`tone ${concept.tone.toLowerCase()}`}>{concept.tone}</span>
+          <h2>{concept.name}</h2>
+          <p>{concept.note}</p>
+        </div>
+      </article>
+    ))}
+  </section>
+
+  <section class="wrap recommendation">
+    <div class="recommendation-card">
+      <span class="section-tag">My recommendation</span>
+      <h2>Take Direction A, optionally blend in a little of Direction B later.</h2>
+      <p>That gives you more richness without diluting the commercial sharpness of the current site. Direction C is useful only as a contrast case to show what not to do.</p>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  .section-tag{display:inline-flex;margin-bottom:14px;font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+  .concept-hero{padding-top:32px}
+  .concept-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+  .concept-card{background:rgba(255,255,255,.82);border:1px solid rgba(255,255,255,.76);border-radius:32px;overflow:hidden;box-shadow:var(--shadow-card), inset 0 1px 0 rgba(255,255,255,.65)}
+  .concept-art{min-height:300px;padding:22px;display:flex;align-items:stretch}
+  .concept-meta{padding:0 22px 24px}
+  .concept-meta h2{font-size:28px;margin-bottom:10px}
+  .concept-meta p{margin:0;color:var(--muted);line-height:1.7}
+  .tone{display:inline-flex;padding:8px 12px;border-radius:999px;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;margin-bottom:16px}
+  .tone.recommended{background:rgba(29,111,83,.12);color:#1d6f53}
+  .tone.conditional{background:rgba(183,133,63,.14);color:var(--gold-dark)}
+  .tone.avoid{background:rgba(120,36,36,.12);color:#8d3c3c}
+  .abstract-ui,.operator-scene,.stock-scene{width:100%;border-radius:26px;position:relative;overflow:hidden}
+  .abstract-ui{background:linear-gradient(180deg,#101826,#273954);padding:18px}
+  .abstract-ui .bar{height:48px;border-radius:16px;background:rgba(255,255,255,.08);margin-bottom:14px}
+  .panel-row{display:grid;grid-template-columns:1.1fr .9fr;gap:14px;height:170px}
+  .panel{border-radius:20px;background:rgba(255,255,255,.09)}
+  .panel.tall{background:linear-gradient(180deg,rgba(183,133,63,.36),rgba(255,255,255,.08))}
+  .signal-lines{display:grid;gap:10px;margin-top:14px}
+  .signal-lines span{height:10px;border-radius:999px;background:rgba(255,255,255,.12)}
+  .operator-scene{background:linear-gradient(180deg,#efe7da,#d7cbbb)}
+  .desk{position:absolute;left:0;right:0;bottom:0;height:34%;background:#8a6b4b}
+  .screen{position:absolute;width:46%;height:40%;right:14%;top:20%;border-radius:18px;background:#1a2433;border:8px solid #232f43}
+  .person{position:absolute;left:18%;bottom:20%;width:28%;height:42%;border-radius:40% 40% 20% 20%;background:#2f3d4f}
+  .lamp{position:absolute;right:10%;top:14%;width:10%;height:36%;border-radius:999px;background:rgba(255,255,255,.45)}
+  .stock-scene{background:linear-gradient(180deg,#dbe7f6,#e9eef6)}
+  .bubble{position:absolute;border-radius:999px;background:rgba(255,255,255,.72);box-shadow:0 12px 30px -18px rgba(16,24,38,.14)}
+  .bubble.one{width:42%;height:42%;top:16%;left:12%}
+  .bubble.two{width:32%;height:32%;top:24%;right:12%}
+  .bubble.three{width:56%;height:16%;bottom:18%;left:22%}
+  .recommendation-card{background:linear-gradient(180deg,rgba(16,24,38,.98),rgba(20,32,52,.95));color:#f4f1ea;border-radius:32px;padding:34px;box-shadow:var(--shadow-soft)}
+  .recommendation-card h2{color:#fff;max-width:16ch}
+  .recommendation-card p{color:rgba(244,241,234,.76);max-width:64ch}
+  @media (max-width:980px){
+    .concept-grid{grid-template-columns:1fr}
+  }
+</style>
