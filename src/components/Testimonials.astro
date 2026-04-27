@@ -1,19 +1,28 @@
 ---
-const proofs = [
-  { title: "Email, domains and setup", body: "Ideal for consultants and solo operators who need to look credible fast and stop leaking trust through messy tech." },
-  { title: "Fixes that protect billable time", body: "The strongest buying trigger here is lost time. Position the service around getting people back to work quickly." },
-  { title: "Simple websites for service businesses", body: "A clean, mobile-friendly site is often enough for a one-man band. Sell practical credibility, not digital theatre." },
+const scenarios = [
+  {
+    title: "Your email looks scrappy",
+    body: "Still on @gmail.com or @hotmail? Invoices landing in spam? I'll set you up on a proper branded domain — calendars, signatures, the lot — usually in an afternoon.",
+  },
+  {
+    title: "Your laptop is costing you money",
+    body: "Slow Wi-Fi, frozen apps, that one printer that hates Mondays. I fix it remotely, same day where I can, so you can get back to billable work.",
+  },
+  {
+    title: "You need a website that just works",
+    body: "Clean, mobile-friendly, does the basics brilliantly: who you are, what you do, how to reach you. Live in days, not months. No ongoing fees.",
+  },
 ];
 ---
 <section class="wrap testimonials">
   <div class="testimonials-head">
     <div>
-      <h2>Who I help</h2>
+      <h2>Sound familiar?</h2>
     </div>
-    <p class="intro">The sweet spot is owner-led businesses where broken tech directly hits revenue, responsiveness or professionalism.</p>
+    <p class="intro">If your day stops when your tech does, you're who I'm for. Three common situations I sort out:</p>
   </div>
   <div class="grid">
-    {proofs.map(t => (
+    {scenarios.map(t => (
       <figure class="card">
         <div class="mark">&ldquo;</div>
         <blockquote>{t.body}</blockquote>

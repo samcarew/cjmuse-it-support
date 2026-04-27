@@ -5,10 +5,10 @@ const proofPoints = [
   "Clear advice, clear scope, no corporate IT nonsense",
 ];
 
-const systemSignals = [
-  { label: 'Response model', value: 'Remote-first triage' },
-  { label: 'Core stack', value: 'Microsoft 365, devices, domains' },
-  { label: 'Commercial lens', value: 'Protect uptime and credibility' },
+const trustMetrics = [
+  { label: 'Response', value: 'Same business day' },
+  { label: 'Most fixes', value: 'Done remotely' },
+  { label: 'Pricing', value: 'Per job, no contracts' },
 ];
 ---
 <section class="hero wrap">
@@ -19,7 +19,7 @@ const systemSignals = [
       <p class="sub">Plain-English IT help for solo operators who need things fixed fast. Email, laptops, websites, Microsoft 365 and security — sorted without jargon, contracts or drama.</p>
       <div class="actions">
         <a class="btn" href="#contact">Get help now</a>
-        <a class="btn secondary" href="#offers">See fixed-price offers</a>
+        <a class="btn secondary" href="#offers">See fixed-scope offers</a>
       </div>
       <ul class="bullets">
         {proofPoints.map((point) => <li>{point}</li>)}
@@ -34,12 +34,12 @@ const systemSignals = [
         <div class="interface-main">
           <div class="signal-cluster">
             <div class="signal-card signal-primary">
-              <div class="signal-label">System state</div>
-              <strong>Stable, secure, client-ready</strong>
-              <p>Setup, support and fixes framed like a calm operating system rather than generic IT noise.</p>
+              <div class="signal-label">No obligation</div>
+              <strong>Free 15-min triage call</strong>
+              <p>I'll diagnose what's wrong, tell you what fixing it will cost, and whether you actually need me. Most people don't need a contract — just a clear answer.</p>
             </div>
             <div class="signal-metrics">
-              {systemSignals.map((item) => (
+              {trustMetrics.map((item) => (
                 <div class="metric-card">
                   <span>{item.label}</span>
                   <strong>{item.value}</strong>
@@ -49,19 +49,20 @@ const systemSignals = [
           </div>
           <div class="workflow-column">
             <div class="workflow-card workflow-accent">
-              <span class="workflow-tag">Best fit</span>
-              <strong>Solo operators where tech failure directly hits revenue</strong>
-              <p>Consultants, owner-led service firms and one-person businesses who need speed, clarity and credibility.</p>
+              <span class="workflow-tag">What happens next</span>
+              <strong>You message me. I reply within hours.</strong>
+              <p>If I can fix it on the call, I will. If not, you get a fixed-scope quote before any work starts. No drip-fed billing, no surprise costs.</p>
             </div>
             <div class="workflow-grid">
               <div class="workflow-card compact">
-                <span class="workflow-tag">Buyer trigger</span>
-                <strong>Lost time</strong>
-                <p>Lead with speed, relief and trust rather than technical depth.</p>
+                <span class="workflow-tag">No lock-in</span>
+                <strong>Cancel any time</strong>
+                <p>Pay-as-you-go for one-off fixes. Retainers only if you genuinely need one.</p>
               </div>
-              <div class="workflow-card compact quote-card">
-                <span class="quote-mark">“</span>
-                <p>Your clients do not care why the laptop broke. They care whether you still deliver.</p>
+              <div class="workflow-card compact">
+                <span class="workflow-tag">Plain English</span>
+                <strong>No acronyms</strong>
+                <p>You'll always know what I'm doing, why, and what it costs.</p>
               </div>
             </div>
           </div>
@@ -94,7 +95,7 @@ const systemSignals = [
   .signal-card{padding:24px 22px;min-height:224px;display:flex;flex-direction:column;justify-content:flex-end;background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.03)), radial-gradient(circle at top left,rgba(183,133,63,.24),rgba(183,133,63,0) 52%)}
   .signal-label,.workflow-tag,.metric-card span{display:block;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
   .signal-card strong,.workflow-card strong{display:block;font-family:'Outfit',system-ui,sans-serif;letter-spacing:-0.04em}
-  .signal-card strong{font-size:34px;line-height:1.02;max-width:10ch;color:#fff;margin:12px 0 12px}
+  .signal-card strong{font-size:32px;line-height:1.04;max-width:12ch;color:#fff;margin:12px 0 12px}
   .signal-card p,.workflow-card p{margin:0;color:rgba(244,241,234,.74);line-height:1.65;font-size:14px}
   .signal-metrics{display:grid;gap:12px}
   .metric-card{padding:16px 18px 18px}
@@ -102,11 +103,9 @@ const systemSignals = [
   .workflow-column{align-content:start}
   .workflow-card{padding:22px}
   .workflow-accent{background:linear-gradient(180deg,rgba(255,255,255,.1),rgba(255,255,255,.04));min-height:190px}
-  .workflow-accent strong{font-size:28px;line-height:1.04;color:#fff;margin:14px 0 12px}
+  .workflow-accent strong{font-size:24px;line-height:1.1;color:#fff;margin:14px 0 12px}
   .workflow-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-  .compact strong{font-size:22px;line-height:1.04;color:#fff;margin:14px 0 10px}
-  .quote-card{position:relative;overflow:hidden}
-  .quote-mark{position:absolute;top:8px;right:14px;font-family:'Outfit',system-ui,sans-serif;font-size:64px;line-height:1;color:rgba(183,133,63,.18)}
+  .compact strong{font-size:18px;line-height:1.15;color:#fff;margin:14px 0 10px}
   @media (max-width:980px){
     .hero-grid{grid-template-columns:1fr;gap:24px}
     .hero-copy{max-width:none}
@@ -114,6 +113,6 @@ const systemSignals = [
   }
   @media (max-width:640px){
     .workflow-grid{grid-template-columns:1fr}
-    .signal-card strong,.workflow-accent strong{font-size:26px}
+    .signal-card strong,.workflow-accent strong{font-size:22px}
   }
 </style>
