@@ -2,24 +2,28 @@
 const offers = [
   {
     title: "Quick Fix Session",
+    price: "From £75",
     body: "For urgent tech headaches: email issues, printer problems, Wi-Fi nonsense, slow laptops, login messes.",
     outcome: "Get the issue diagnosed and fixed fast, usually remotely.",
     icon: "support",
   },
   {
     title: "Professional Setup",
+    price: "From £250",
     body: "For solo operators who need branded email, domain setup, calendars, signatures and a cleaner business presence.",
     outcome: "Look credible, stay organised and stop losing time to DIY setup.",
     icon: "email",
   },
   {
     title: "Security & Backup Check",
+    price: "From £150",
     body: "For businesses one bad click away from a bad week: device security, password vaults and Microsoft 365 backup.",
     outcome: "Reduce risk and make sure your business data is recoverable.",
     icon: "shield",
   },
   {
     title: "Simple Business Website",
+    price: "From £500",
     body: "For consultants and one-man bands who need a clean, modern website that works on mobile and looks professional.",
     outcome: "A site that helps you win trust without a bloated build process.",
     icon: "browser",
@@ -36,42 +40,56 @@ const offers = [
   <div class="grid">
     {offers.map(s => (
       <div class="card">
-        <div class="icon">
-          {s.icon === "support" && (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4 14v-2a8 8 0 0 1 16 0v2" />
-              <path d="M20 14v3a2 2 0 0 1-2 2h-1v-6h3z" />
-              <path d="M4 14v3a2 2 0 0 0 2 2h1v-6H4z" />
-              <path d="M17 19a5 5 0 0 1-5 3" />
-            </svg>
-          )}
-          {s.icon === "email" && (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="5" width="18" height="14" rx="2" />
-              <path d="m3 7 9 6 9-6" />
-            </svg>
-          )}
-          {s.icon === "shield" && (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2 4 5v7c0 4.5 3.5 8.5 8 10 4.5-1.5 8-5.5 8-10V5l-8-3z" />
-              <path d="m9 12 2 2 4-4" />
-            </svg>
-          )}
-          {s.icon === "browser" && (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="4" width="18" height="16" rx="2" />
-              <path d="M3 9h18" />
-              <circle cx="6.5" cy="6.5" r="0.6" fill="currentColor" />
-              <circle cx="8.8" cy="6.5" r="0.6" fill="currentColor" />
-              <circle cx="11.1" cy="6.5" r="0.6" fill="currentColor" />
-            </svg>
-          )}
+        <div class="card-head">
+          <div class="icon">
+            {s.icon === "support" && (
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 14v-2a8 8 0 0 1 16 0v2" />
+                <path d="M20 14v3a2 2 0 0 1-2 2h-1v-6h3z" />
+                <path d="M4 14v3a2 2 0 0 0 2 2h1v-6H4z" />
+                <path d="M17 19a5 5 0 0 1-5 3" />
+              </svg>
+            )}
+            {s.icon === "email" && (
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="5" width="18" height="14" rx="2" />
+                <path d="m3 7 9 6 9-6" />
+              </svg>
+            )}
+            {s.icon === "shield" && (
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2 4 5v7c0 4.5 3.5 8.5 8 10 4.5-1.5 8-5.5 8-10V5l-8-3z" />
+                <path d="m9 12 2 2 4-4" />
+              </svg>
+            )}
+            {s.icon === "browser" && (
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="16" rx="2" />
+                <path d="M3 9h18" />
+                <circle cx="6.5" cy="6.5" r="0.6" fill="currentColor" />
+                <circle cx="8.8" cy="6.5" r="0.6" fill="currentColor" />
+                <circle cx="11.1" cy="6.5" r="0.6" fill="currentColor" />
+              </svg>
+            )}
+          </div>
+          <span class="price">{s.price}</span>
         </div>
         <h3>{s.title}</h3>
         <p>{s.body}</p>
         <div class="outcome"><strong>Outcome:</strong> {s.outcome}</div>
       </div>
     ))}
+  </div>
+
+  <div class="mid-cta">
+    <div class="mid-cta-text">
+      <strong>Not sure which fits?</strong>
+      <p>Book a free 15-minute call. I'll tell you what's wrong, what it'll cost, and whether you actually need me.</p>
+    </div>
+    <div class="mid-cta-actions">
+      <a class="mid-btn primary" href="#contact">Get a free triage</a>
+      <a class="mid-btn whatsapp" href="https://wa.me/447951638005?text=Hi%20%E2%80%94%20I%20found%20you%20on%20the%20CJMuse%20website.%20Can%20you%20help%20with..." target="_blank" rel="noopener noreferrer">WhatsApp me</a>
+    </div>
   </div>
 </section>
 
@@ -95,6 +113,22 @@ const offers = [
   }
   .card p{color:var(--muted);margin:0;font-size:15px;line-height:1.7}
   .card h3{margin-bottom:12px}
+  .card-head{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:18px}
+  .price{
+    display:inline-flex;
+    align-items:center;
+    height:32px;
+    padding:0 14px;
+    border-radius:999px;
+    background:rgba(16,24,38,.05);
+    border:1px solid rgba(16,24,38,.08);
+    font-family:'Outfit',system-ui,sans-serif;
+    font-size:14px;
+    font-weight:700;
+    color:var(--navy);
+    letter-spacing:-0.01em;
+    white-space:nowrap;
+  }
   .outcome{margin-top:18px;padding-top:16px;border-top:1px solid rgba(16,24,38,.08);font-size:14px;color:var(--ink)}
   .icon{
     width:58px;
@@ -105,10 +139,34 @@ const offers = [
     display:inline-flex;
     align-items:center;
     justify-content:center;
-    margin-bottom:18px;
+    margin-bottom:0;
+    flex-shrink:0;
   }
   .icon svg{width:30px;height:30px}
+
+  .mid-cta{
+    margin-top:34px;
+    display:grid;
+    grid-template-columns:1fr auto;
+    gap:24px;
+    align-items:center;
+    background:linear-gradient(180deg,rgba(16,24,38,.98),rgba(20,32,52,.95));
+    color:#fff;
+    border-radius:32px;
+    padding:28px 32px;
+    box-shadow:var(--shadow-soft);
+  }
+  .mid-cta-text strong{display:block;font-family:'Outfit',system-ui,sans-serif;font-size:22px;line-height:1.2;letter-spacing:-0.02em;color:#fff;margin-bottom:6px}
+  .mid-cta-text p{margin:0;color:rgba(247,243,235,.78);font-size:15px;line-height:1.6}
+  .mid-cta-actions{display:flex;gap:10px;flex-wrap:wrap}
+  .mid-btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 22px;border-radius:999px;text-decoration:none;font-weight:700;font-size:14px;transition:transform .2s ease, background .2s ease}
+  .mid-btn.primary{background:var(--gold);color:var(--navy)}
+  .mid-btn.primary:hover{background:#d4a458;transform:translateY(-1px)}
+  .mid-btn.whatsapp{background:#1d6f53;color:#fff;border:1px solid rgba(255,255,255,.12)}
+  .mid-btn.whatsapp:hover{background:#175842;transform:translateY(-1px)}
+
   @media (max-width:860px){
     .section-heading,.grid{grid-template-columns:1fr}
+    .mid-cta{grid-template-columns:1fr;padding:24px}
   }
 </style>
