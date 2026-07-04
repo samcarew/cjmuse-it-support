@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>File Send — IT Toolkit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="toolkit-shared.css">
+<style>
+  .dropzone{
+    width:100%;
+    border:1.5px dashed rgba(255,255,255,0.18);
+    border-radius:12px;
+    padding:46px 20px;
+    text-align:center;
+    cursor:not-allowed;
+  }
+  .dropzone svg{ width:34px; height:34px; color:var(--muted-light); margin-bottom:14px; }
+  .dropzone .dz-title{ font-family:'Space Grotesk', sans-serif; font-weight:700; font-size:16px; color:var(--text-light); margin-bottom:6px; }
+  .dropzone .dz-sub{ font-size:12.5px; color:var(--muted-light); }
+  .soon-tag{
+    display:inline-block; margin-top:16px;
+    font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:0.12em; text-transform:uppercase;
+    background:rgba(217,168,104,0.15); color:var(--gold);
+    padding:5px 10px; border-radius:999px; font-weight:600;
+  }
+  @media (max-width:640px){
+    .stage-3d{ perspective:1000px; }
+    .panel{ transform:rotateX(4deg) rotateY(-6deg); padding:20px 16px; }
+    .reflection{ transform:scaleY(-1) rotateX(4deg) rotateY(-6deg); height:50px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="bokeh b1"></div>
+<div class="bokeh b2"></div>
+<div class="bokeh b3"></div>
+<div class="bokeh b4"></div>
+<div class="mist"></div>
+
+<a class="nav-crumb" href="index.html">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+  IT Toolkit
+</a>
+
+<div class="wrap">
+  <div class="eyebrow-pill">
+    <span class="dot" style="background:var(--gold); box-shadow:0 0 6px var(--gold);"></span>
+    <span>Coming soon</span>
+  </div>
+
+  <h1>Big files,<br>sent simply.</h1>
+  <p class="sub">A WeTransfer-style drop for large files is on its way. No sign-ups, no size headaches — just a link that expires.</p>
+
+  <div class="stage-3d">
+    <div class="panel" id="panel">
+      <div class="dropzone">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><path d="M17 8l-5-5-5 5M12 3v12"/></svg>
+        <div class="dz-title">Drop files here</div>
+        <div class="dz-sub">This module isn't wired up yet</div>
+        <span class="soon-tag">Coming soon</span>
+      </div>
+    </div>
+  </div>
+  <div class="reflection" id="reflection"></div>
+
+  <a class="caption-pill" href="https://itsupport.cjmuse.com" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/></svg>
+    <span>Need to send something now? Contact IT Support →</span>
+  </a>
+</div>
+
+<script>
+  const panel = document.getElementById('panel');
+  const reflection = document.getElementById('reflection');
+  reflection.innerHTML = '<div style="padding:26px 22px;">' + panel.innerHTML + '</div>';
+</script>
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IT Toolkit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="toolkit-shared.css">
+<style>
+  .home-badge{
+    position:fixed; top:20px; left:20px; z-index:10;
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:'JetBrains Mono', monospace; font-size:12px; font-weight:700;
+    letter-spacing:0.06em; color:var(--ink);
+  }
+  .home-badge .dot{ width:7px; height:7px; border-radius:50%; background:var(--gold); }
+</style>
+</head>
+<body>
+
+<div class="bokeh b1"></div>
+<div class="bokeh b2"></div>
+<div class="bokeh b3"></div>
+<div class="bokeh b4"></div>
+<div class="mist"></div>
+
+<div class="home-badge"><span class="dot"></span>IT TOOLKIT</div>
+
+<div class="wrap">
+  <div class="eyebrow-pill">
+    <span class="dot"></span>
+    <span>Local-first utilities</span>
+  </div>
+
+  <h1>Everyday IT,<br>made calm.</h1>
+  <p class="sub">Three small tools for the stuff that usually feels fiddly. No accounts, no clutter — pick one and get on with your day.</p>
+
+  <div class="atmo-fan">
+    <a class="atmo-card" href="password-generator.html">
+      <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="16" r="1.5"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+      <h3>Password Generator</h3>
+      <p>Strong, random passwords made in your browser. Nothing stored.</p>
+    </a>
+    <a class="atmo-card" href="ip-checker.html">
+      <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 010 18M12 3a14 14 0 000 18"/></svg>
+      <h3>IP Checker</h3>
+      <p>See your public IP, ISP and rough location in one glance.</p>
+    </a>
+    <a class="atmo-card disabled" href="file-send.html">
+      <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><path d="M17 8l-5-5-5 5M12 3v12"/></svg>
+      <h3>File Send <span class="soon-badge">Soon</span></h3>
+      <p>Move large files securely, past your inbox's size limit.</p>
+    </a>
+  </div>
+
+  <a class="caption-pill" href="https://itsupport.cjmuse.com" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/></svg>
+    <span>Need a hand? Visit IT Support →</span>
+  </a>
+</div>
+
+</body>
+</html>

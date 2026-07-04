@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IP Checker — IT Toolkit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="toolkit-shared.css">
+<style>
+  .ip-panel{ width:100%; }
+  .ip-big{
+    font-family:'JetBrains Mono', monospace;
+    font-size:clamp(24px, 5vw, 34px);
+    font-weight:700;
+    color:var(--text-light);
+    letter-spacing:0.01em;
+    margin-bottom:6px;
+    min-height:1.2em;
+  }
+  .ip-caption{
+    font-family:'JetBrains Mono', monospace;
+    font-size:10.5px; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--muted-light); margin-bottom:20px;
+  }
+  .ip-actions{ display:flex; gap:8px; margin-bottom:20px; }
+  .ip-rows{ border-top:1px solid rgba(255,255,255,0.08); padding-top:16px; display:flex; flex-direction:column; gap:12px; }
+  .ip-row{ display:flex; justify-content:space-between; align-items:baseline; gap:12px; opacity:0; transform:translateY(6px); animation:rowIn 0.4s ease forwards; }
+  .ip-row .k{ font-size:12px; color:var(--muted-light); font-family:'Inter',sans-serif; }
+  .ip-row .v{ font-family:'JetBrains Mono', monospace; font-size:13px; color:var(--text-light); text-align:right; }
+  @keyframes rowIn{ to{ opacity:1; transform:translateY(0); } }
+
+  .pulse-wrap{ display:flex; align-items:center; gap:10px; color:var(--muted-light); font-family:'JetBrains Mono', monospace; font-size:12.5px; padding:6px 0 20px; }
+  .pulse-dot{ width:8px; height:8px; border-radius:50%; background:var(--gold); box-shadow:0 0 8px var(--gold); animation:pulse2 1.2s ease-in-out infinite; }
+  @keyframes pulse2{ 0%,100%{ opacity:1; transform:scale(1); } 50%{ opacity:0.4; transform:scale(0.8); } }
+
+  .error-box{
+    color:var(--coral); font-family:'JetBrains Mono', monospace; font-size:12.5px;
+    border-top:1px solid rgba(255,255,255,0.08); padding-top:16px; line-height:1.6;
+  }
+  .error-box button{
+    margin-top:12px; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.14);
+    color:var(--text-light); font-family:'Inter',sans-serif; font-weight:600; font-size:12.5px;
+    padding:8px 14px; border-radius:8px; cursor:pointer;
+  }
+
+  @media (max-width:640px){
+    .stage-3d{ perspective:1000px; }
+    .panel{ transform:rotateX(4deg) rotateY(-6deg); padding:20px 16px; }
+    .reflection{ transform:scaleY(-1) rotateX(4deg) rotateY(-6deg); height:50px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="bokeh b1"></div>
+<div class="bokeh b2"></div>
+<div class="bokeh b3"></div>
+<div class="bokeh b4"></div>
+<div class="mist"></div>
+
+<a class="nav-crumb" href="index.html">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+  IT Toolkit
+</a>
+
+<div class="wrap">
+  <div class="eyebrow-pill">
+    <span class="dot"></span>
+    <span>Public lookup · read only</span>
+  </div>
+
+  <h1>Where the internet<br>thinks you are.</h1>
+  <p class="sub">We ask a public lookup service what IP address, ISP and rough location it sees for this connection. Nothing else about you is touched.</p>
+
+  <div class="stage-3d">
+    <div class="panel ip-panel" id="panel">
+      <div id="loadingState" class="pulse-wrap">
+        <span class="pulse-dot"></span> Locating your connection…
+      </div>
+      <div id="resultState" style="display:none;">
+        <div class="ip-caption">Your public IP</div>
+        <div class="ip-big" id="ipValue">—</div>
+        <div class="ip-actions">
+          <button class="icon-btn" id="refreshBtn" title="Check again">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 4v6h-6"/><path d="M1 20v-6h6"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+          </button>
+          <button class="copy-btn" id="copyBtn">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            <span id="copyLabel">Copy</span>
+          </button>
+        </div>
+        <div class="ip-rows" id="ipRows"></div>
+      </div>
+      <div id="errorState" class="error-box" style="display:none;">
+        Couldn't complete the lookup. Check your connection and try again.
+        <div><button id="retryBtn">Retry</button></div>
+      </div>
+    </div>
+  </div>
+  <div class="reflection" id="reflection"></div>
+
+  <a class="caption-pill" href="index.html">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/></svg>
+    <span>Looked up via a public IP directory (ipwho.is). Press Ctrl+C anytime to copy your IP.</span>
+  </a>
+</div>
+
+<script>
+  const loadingState = document.getElementById('loadingState');
+  const resultState = document.getElementById('resultState');
+  const errorState = document.getElementById('errorState');
+  const ipValue = document.getElementById('ipValue');
+  const ipRows = document.getElementById('ipRows');
+  const copyBtn = document.getElementById('copyBtn');
+  const copyLabel = document.getElementById('copyLabel');
+  const refreshBtn = document.getElementById('refreshBtn');
+  const retryBtn = document.getElementById('retryBtn');
+  const reflection = document.getElementById('reflection');
+
+  let currentIp = '';
+
+  function addRow(key, value, delay){
+    const row = document.createElement('div');
+    row.className = 'ip-row';
+    row.style.animationDelay = delay + 'ms';
+    row.innerHTML = '<span class="k">' + key + '</span><span class="v">' + value + '</span>';
+    ipRows.appendChild(row);
+  }
+
+  function syncReflection(){
+    reflection.innerHTML = '<div style="padding:26px 22px;">' + document.getElementById('panel').innerHTML + '</div>';
+  }
+
+  async function runLookup(){
+    loadingState.style.display = 'flex';
+    resultState.style.display = 'none';
+    errorState.style.display = 'none';
+    ipRows.innerHTML = '';
+
+    try{
+      const res = await fetch('https://ipwho.is/');
+      if(!res.ok) throw new Error('bad response');
+      const data = await res.json();
+      if(data.success === false) throw new Error('lookup failed');
+
+      currentIp = data.ip || '—';
+      ipValue.textContent = currentIp;
+
+      const locationParts = [data.city, data.region, data.country].filter(Boolean).join(', ');
+      let delay = 0;
+      if(locationParts){ addRow('Location', locationParts, delay); delay += 60; }
+      if(data.connection && data.connection.isp){ addRow('ISP', data.connection.isp, delay); delay += 60; }
+      if(data.connection && data.connection.asn){ addRow('ASN', 'AS' + data.connection.asn, delay); delay += 60; }
+      if(data.timezone && data.timezone.id){ addRow('Timezone', data.timezone.id, delay); delay += 60; }
+      if(data.type){ addRow('Type', data.type, delay); delay += 60; }
+
+      loadingState.style.display = 'none';
+      resultState.style.display = 'block';
+      syncReflection();
+    } catch(err){
+      loadingState.style.display = 'none';
+      errorState.style.display = 'block';
+    }
+  }
+
+  function flashCopied(){
+    copyBtn.classList.add('copied');
+    copyLabel.textContent = 'Copied';
+    setTimeout(() => { copyBtn.classList.remove('copied'); copyLabel.textContent = 'Copy'; }, 1400);
+  }
+  function copyCurrentIp(){
+    if(!currentIp) return;
+    navigator.clipboard.writeText(currentIp).then(flashCopied);
+  }
+  copyBtn.addEventListener('click', copyCurrentIp);
+  document.addEventListener('keydown', (e) => {
+    const isCopyShortcut = (e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'c';
+    if(isCopyShortcut){ e.preventDefault(); copyCurrentIp(); }
+  });
+
+  refreshBtn.addEventListener('click', () => {
+    refreshBtn.classList.add('spin');
+    runLookup();
+    setTimeout(() => refreshBtn.classList.remove('spin'), 500);
+  });
+  retryBtn.addEventListener('click', runLookup);
+
+  runLookup();
+</script>
+
+</body>
+</html>
